@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="addNewObserver">Add New Observer checkbox</button>
+  <input type="checkbox" id="mainCheckbox">
+  <div id="observersContainer"></div>
+
+  <script src="./index.js"></script>
+  <script>
+    var controlCheckbox = document.getElementById("mainCheckbox"),
+      addBtn = document.getElementById("addNewObserver"),
+      container = document.getElementById("observersContainer");
+    // 具体目标 Concrete Subject
+
+    // 利用Subject 扩展 controlCheckbox
+    extend(new Subject(), controlCheckbox);
+
+    console.log(controlCheckbox.checked)
+
+    // 点击checkbox会触发通知到观察者上
+    controlCheckbox["onclick"] = new Function("controlCheckbox.Notify(controlCheckbox.checked)");
+    addBtn["onclick"] = AddNewObserver;
+
+    //  具体观察者 Concrete Observer
+    function AddNewObserver() {
+      var check = document.createElement("input");
+      check.type = "checkbox";
+
+      //  利用Observer类扩展checkbox
+      extend(new Observer(), check);
+
+      // 重写自定义更新行为
+      check.Update = function(value) {
+        this.checked = value;
+      }
+
+      // 为主subject的观察者列表添加新的观察者
+      controlCheckbox.AddObserver(check);
+
+      // 将观察者附件到容器上
+      container.appendChild(check)
+    }
+  </script>
+</body>
+</html>
