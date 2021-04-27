@@ -1,6 +1,22 @@
 ## 自己手写 typeof
 
 原生 typeof 对于简单数据类型是可以准确判断的, 但是对于引用类型除了 function 其他均会返回 object
+- 识别所有值类型
+- 识别函数
+- 判断是否是引用类型
+```js
+  typeof undefined // "undefined"
+  typeof "abc" // "string""
+  typeof 100 // "number""
+  typeof true // "boolean""
+  typeof Symbol('a') // "symbol"
+
+  typeof funcion() {} // "function"
+
+  typeof null // "object"
+  typeof [] // "object"
+  typeof {} // "object"
+```
 
 所以我们可以自己实现一个 typeof
 
