@@ -32,12 +32,12 @@ const shallowClone = obj => {
 手撸一个
 
 ```js
-const deepClone = obj => {
-  if (!obj || typeof obj !== 'object') return
+const deepClone = (obj) => {
+  if(!obj || typeof obj !== "object") return obj
   let result = obj instanceof Array ? [] : {}
   for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      result[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key]
+    if(obj.hasOwnProperty(key)) {
+      result[key] = typeof obj[key] === "object" ? deepClone(obj[key]) : obj[key]
     }
   }
   return result

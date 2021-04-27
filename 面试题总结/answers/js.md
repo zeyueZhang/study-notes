@@ -20,7 +20,15 @@
 - 何时使用 === 何时使用 ==
 - 值类型和引用类型的区别
 - 手写深拷贝
-  
-  ```js
-    
-  ```
+```js
+const deepClone = (obj) => {
+  if(!obj || typeof obj !== "object") return obj
+  let result = obj instanceof Array ? [] : {}
+  for (let key in obj) {
+    if(obj.hasOwnProperty(key)) {
+      result[key] = typeof obj[key] === "object" ? deepClone(obj[key]) : obj[key]
+    }
+  }
+  return result
+}
+```
