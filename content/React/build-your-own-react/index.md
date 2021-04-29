@@ -1,8 +1,6 @@
 # 实现自己的react
 [最终完整代码](./index.js)
 ## 一、CreateElement
-探索前端的边界
-talk is cheap, show me the code
 
 1. 回顾**react**的jsx语法
   ```javascript
