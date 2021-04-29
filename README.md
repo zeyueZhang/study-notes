@@ -14,7 +14,7 @@
 8. [Generator](./content/JS/Generator.md)
 ### CSS
 1. [杂七杂八](./content/css/index.md)
-2. [一些动画](./content/css/animation/hover.html)
+2. [一些cover动画](./content/css/animation/hover.html)
 
 ### HTML
 1. [碎片知识点](./content/HTML/css.md)
