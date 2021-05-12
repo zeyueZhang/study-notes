@@ -95,19 +95,39 @@ pending -> resolved 或 pending -> rejected
     ```
 
   + Promise.all
-
-    ```js
-    Promise.myAll = function (proArr) {
-      let result = []
-      
-      for (let i = 0, len = proArr.length; i < len; i ++) {
-        proArr[i].then(v => {
-          result.push(v)
-        }, e => {
-          return Promise.reject(e)
-        })
+    - 简单版
+      ```js
+      Promise.myAll = function (proArr) {
+        let result = []
+        
+        for (let i = 0, len = proArr.length; i < len; i ++) {
+          proArr[i].then(v => {
+            result.push(v)
+          }, e => {
+            return Promise.reject(e)
+          })
+        }
+        return Promise.resolve(result)
       }
-      return Promise.resolve(result)
-    }
-    ```
+      ```
+    - 进阶
+      ```js
+        Promise.myAll = function(arr){
+          const result = [],
+            len = arr.length
+          let count = 0
+
+          for(let i = 0; i< len; i++) {
+            count ++
+            arr[i].then(v => {
+              result[i] = v
+              if(count === len) {
+                return Promise.resolve(result);
+              }
+            }, e => {
+              return Promise.reject(e)
+            })
+          }
+        }
+      ```
 
