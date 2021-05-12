@@ -113,21 +113,33 @@ pending -> resolved 或 pending -> rejected
     - 进阶
       ```js
         Promise.myAll = function(arr){
-          const result = [],
-            len = arr.length
-          let count = 0
+          return new Promise((resolve, reject) => {
+            const result = [],
+              len = arr.length
+            let count = 0
 
-          for(let i = 0; i< len; i++) {
-            count ++
-            arr[i].then(v => {
-              result[i] = v
-              if(count === len) {
-                return Promise.resolve(result);
-              }
-            }, e => {
-              return Promise.reject(e)
-            })
-          }
+            for(let i = 0; i< len; i++) {
+              count ++
+              arr[i].then(v => {
+                result[i] = v
+                if(count === len) {
+                  return resolve(result);
+                }
+              }, e => {
+                return reject(e)
+              })
+            }
+          })
         }
       ```
+  + race
+    ```js
+      Promise.myRace = function(promiseAry) {
+        return new Promise((resolve, reject) => {
+          for (let i = 0; i < promiseAry.length; i++) {
+            promiseAry[i].then(resolve, reject)
+          }
+        })
+      }
+    ```
 
