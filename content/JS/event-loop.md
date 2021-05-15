@@ -4,6 +4,7 @@
 
 ### 宏任务和微任务
 
+
 - 宏任务，macrotask，也叫tasks。 一些异步任务的回调会依次进入macro task queue，等待后续被调用，这些异步任务包括：
   + setTimeout
   + setInterval
@@ -18,6 +19,9 @@
   + MutationObserver
 
 ### 浏览器的Event Loop
+
+- 宏任务：DOM渲染后触发
+- 微任务：DOM渲染前触发
 
 - **首先执行同步代码，同步代码全部执行完毕，执行微任务（microkask），直到全部执行完毕后再执行宏任务（macrokask）**
 
