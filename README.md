@@ -12,6 +12,8 @@
 6. [event-loop](./content/JS/event-loop.md)
 7. [new实现](./content/JS/new实现.md)
 8. [Generator](./content/JS/Generator.md)
+9. [Promise](./content/JS/Promise.md)
+10. [模块化](./content/JS/模块化.md)
 ### CSS
 1. [杂七杂八](./content/css/index.md)
 2. [一些cover动画](./content/css/animation/hover.html)
@@ -40,3 +42,8 @@
 3. [单例模式](./content/js设计模式/单例模式/index.js)
 4. [观察者模式](./content/js设计模式/观察者模式/index.js)
 5. [发布订阅模式](./content/js设计模式/Publish-Subscribe/index.js)
+
+### 数据结构
+
+1. [队列](./content/数据结构/队列.md)
+2. [栈](./content/数据结构/栈.md)
