@@ -1,4 +1,4 @@
-## 关于charls抓包https请求
+## 关于charles抓包https请求
 
 - 开启 SSL Proxying Settings
 - 开启 Enable SSL Proxying
